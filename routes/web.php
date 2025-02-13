@@ -8,8 +8,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/login", [LoginController::class, "showLoginForm"])->name("loginForm");
 Route::post("/login", [LoginController::class, "login"])->name("login");
-Route::get("/logout", [LoginController::class, "logout"])->name("logout");
 Route::get("/register", [RegisterController::class, "showRegisterForm"])->name("registerForm");
 Route::post("/register", [RegisterController::class, "create"])->name("register");
+Route::get("/logout", [LoginController::class, "logout"])->name("logout");
 
-Route::get('/', [HomeController::class, 'index']);
+Route::name('public.')->as('public.')->group(function(){
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+});
+
+Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => ['auth', 'verified']], function(){
+    Route::get('/', [HomeController::class, 'dashboard'])->name("index");
+});
+
+require __DIR__ . '/admin.php';

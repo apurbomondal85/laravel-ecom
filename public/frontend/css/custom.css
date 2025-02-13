@@ -44,3 +44,7 @@
 .hover-container:hover .user_box {
     display: block;   
 }
+
+.error-message{
+    color: red !important;
+}

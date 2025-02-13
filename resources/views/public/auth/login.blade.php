@@ -16,24 +16,30 @@
             <form method="POST" action="{{route('login')}}" name="login-form" class="needs-validation" novalidate="" enctype="multipart/form-data">
               @csrf
               <div class="form-floating mb-3">
-                <input class="form-control form-control_gray " name="email" value="" required="" autocomplete="email"
+                <input class="form-control form-control_gray @error('email') is_invalid @enderror" name="email" value="" required autocomplete="email"
                   autofocus="">
                 <label for="email">Email address *</label>
+                @error('email')
+                  <p class="error-message">{{$message}}</p>
+                @endif
               </div>
 
               <div class="pb-3"></div>
 
               <div class="form-floating mb-3">
-                <input id="password" type="password" class="form-control form-control_gray " name="password" required=""
+                <input id="password" type="password" class="form-control form-control_gray @error('password') is_invalid @enderror" name="password" required=""
                   autocomplete="current-password">
                 <label for="customerPasswodInput">Password *</label>
+                @error('password')
+                  <p class="error-message">{{$message}}</p>
+                @endif
               </div>
 
               <button class="btn btn-primary w-100 text-uppercase" type="submit">Log In</button>
 
               <div class="customer-option mt-4 text-center">
                 <span class="text-secondary">No account yet?</span>
-                <a href="{{route('register')}}" class="btn-text js-show-register">Create Account</a> | <a href="my-account.html"
+                <a href="{{route('registerForm')}}" class="btn-text js-show-register">Create Account</a> | <a href="my-account.html"
                   class="btn-text js-show-register">My Account</a>
               </div>
             </form>

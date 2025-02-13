@@ -201,7 +201,7 @@
             </a>
             <div class="user_box">
               <ul>
-                <li><a href="">Dashboard</a></li>
+                <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>
               </ul>
             </div>
@@ -211,7 +211,7 @@
           @guest
             <div class="d-flex align-items-center mx-2">
               <a class="d-block" style="font-size: 16px" href="{{ route('login') }}">Login</a>
-              <a href="{{ route('loginForm') }}" class="ms-3 d-block" style="font-size: 16px">Register</a>
+              <a href="{{ route('registerForm') }}" class="ms-3 d-block" style="font-size: 16px">Register</a>
             </div>
           @endguest
 

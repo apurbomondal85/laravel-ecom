@@ -14,6 +14,11 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required|string'
+        ]);
+        
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('web')->attempt($credentials)) {
@@ -26,6 +31,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::guard('web')->logout();
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.loginForm');
     }
 }

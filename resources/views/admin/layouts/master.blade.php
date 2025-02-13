@@ -24,19 +24,44 @@
     @stack('styles')
 </head>
 <body>
-    @include('admin.components.header')
-    
-    @yield('content')
+    <div id="wrapper">
+        <div id="page" class="">
+            <div class="layout-wrap">
+                @include('admin.components.sidebar')
 
-    @include('admin.components.footer')
+                <div class="section-content-right">
+                    @include('admin.components.header')
+
+                    <div class="main-content">
+                        <div class="main-content-inner">
+                            @yield('content')
+                        </div>
+
+                        <div class="bottom-page">
+                            <div class="body-text">Copyright © 2024 SurfsideMedia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="{{asset("admin/js/jquery.min.js")}}"></script>
-    <script src="{{asset("admin/js/bootstrap.min.js")}}"></script>
+    {{-- <script src="{{asset("admin/js/bootstrap.min.js")}}"></script> --}}
+    <script src="{{asset("admin/js/bootstrap.bundle.min.js")}}"></script>
     <script src="{{asset("admin/js/bootstrap-select.min.js")}}"></script>   
     <script src="{{asset("admin/js/sweetalert.min.js")}}"></script>    
     <script src="{{asset("admin/js/apexcharts/apexcharts.js")}}"></script>
     <script src="{{asset("admin/js/main.js")}}"></script>
+    @vite('resources/admin/js/helper.js')
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     @stack('scripts')
+
+    <script>
+        var BASE_URL = "{{ url('/') }}";
+    </script>
 </body>
 </html>

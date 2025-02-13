@@ -22,10 +22,10 @@ class RoleMiddleware
                 return $next($request);
             }else{
                 Session::flush();
-                return redirect()->route('admin.login');
+                return redirect()->route('admin.loginForm');
             }
         }else{
-            return redirect()->route('admin.login');
+            return redirect()->route('admin.loginForm');
         }
     }
 }

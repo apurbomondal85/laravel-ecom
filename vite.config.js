@@ -7,6 +7,10 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/admin/js/helper.js',
+                
+                // Brand
+                'resources/admin/js/pages/brand/index.js',
             ],
             refresh: true,
         }),

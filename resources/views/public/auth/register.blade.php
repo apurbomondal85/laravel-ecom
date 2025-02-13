@@ -13,25 +13,35 @@
       <div class="tab-content pt-2" id="login_register_tab_content">
         <div class="tab-pane fade show active" id="tab-item-register" role="tabpanel" aria-labelledby="register-tab">
           <div class="register-form">
-            <form method="POST" action="#" name="register-form" class="needs-validation" novalidate="">
+            <form method="POST" action="{{ route('register') }}" name="register-form" class="needs-validation" novalidate="">
+              @csrf
               <div class="form-floating mb-3">
-                <input class="form-control form-control_gray " name="name" value="" required="" autocomplete="name"
+                <input class="form-control form-control_gray " name="name" value="{{ old('name') }}" required="" autocomplete="name"
                   autofocus="">
                 <label for="name">Name</label>
+                @error('name')
+                  <p class="error-message">{{$message}}</p>
+                @endif
               </div>
               <div class="pb-3"></div>
               <div class="form-floating mb-3">
-                <input id="email" type="email" class="form-control form-control_gray " name="email" value="" required=""
+                <input id="email" type="email" class="form-control form-control_gray " name="email" value="{{ old('email') }}" required=""
                   autocomplete="email">
                 <label for="email">Email address *</label>
+                @error('email')
+                  <p class="error-message">{{$message}}</p>
+                @endif
               </div>
 
               <div class="pb-3"></div>
 
               <div class="form-floating mb-3">
-                <input id="mobile" type="text" class="form-control form-control_gray " name="mobile" value=""
-                  required="" autocomplete="mobile">
-                <label for="mobile">Mobile *</label>
+                <input id="phone" type="text" class="form-control form-control_gray " name="phone" value="{{ old('phone') }}"
+                  required="" autocomplete="phone">
+                <label for="phone">Mobile *</label>
+                @error('phone')
+                  <p class="error-message">{{$message}}</p>
+                @endif
               </div>
 
               <div class="pb-3"></div>
@@ -40,12 +50,18 @@
                 <input id="password" type="password" class="form-control form-control_gray " name="password" required=""
                   autocomplete="new-password">
                 <label for="password">Password *</label>
+                @error('password')
+                  <p class="error-message">{{$message}}</p>
+                @endif
               </div>
 
               <div class="form-floating mb-3">
                 <input id="password-confirm" type="password" class="form-control form-control_gray"
                   name="password_confirmation" required="" autocomplete="new-password">
                 <label for="password">Confirm Password *</label>
+                @error('password_confirmation')
+                  <p class="error-message">{{$message}}</p>
+                @endif
               </div>
 
               <div class="d-flex align-items-center mb-3 pb-2">
@@ -57,7 +73,7 @@
 
               <div class="customer-option mt-4 text-center">
                 <span class="text-secondary">Have an account?</span>
-                <a href="{{route('login')}}" class="btn-text js-show-register">Login to your Account</a>
+                <a href="{{route('loginForm')}}" class="btn-text js-show-register">Login to your Account</a>
               </div>
             </form>
           </div>
