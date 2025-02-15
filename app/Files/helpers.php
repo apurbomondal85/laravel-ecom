@@ -37,3 +37,10 @@ function deleteFile($path)
         }
     }
 }
+
+function getFormattedAmount($amount)
+{
+    $formattedAmount = number_format($amount, 0, '.', ',');
+
+    return '$' . $formattedAmount;
+}

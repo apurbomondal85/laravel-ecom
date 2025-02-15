@@ -100,9 +100,9 @@ class BrandController extends Controller
     {
         abort_unless($brand, 404);
 
-        // if ($brand?->products()?->count()) {
-        //     return redirect()->back()->with('error', "Could not deleted! This brand has products.");
-        // }
+        if ($brand?->products()?->count()) {
+            return redirect()->back()->with('error', "Could not deleted! This brand has products.");
+        }
 
         $result = $this->brand_service->delete($brand);
 

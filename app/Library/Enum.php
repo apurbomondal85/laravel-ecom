@@ -6,6 +6,9 @@ enum Enum
 {
     public const NO_IMAGE_PATH = 'resources/images/noimage.jpg';
     public const BRAND_THUMBNAIL_IMAGE_DIR = 'storage/brand';
+    public const CATEGORY_THUMBNAIL_IMAGE_DIR = 'storage/category';
+    public const PRODUCT_THUMBNAIL_IMAGE_DIR = 'storage/product';
+    public const PRODUCT_GALLERY_IMAGE_DIR = 'storage/gallery';
     
     // Attachment For Type
     public const ATTACHMENT_TYPE_THUMBNAIL = 'thumbnail';
@@ -33,5 +36,19 @@ enum Enum
         ];
 
         return $type ? $types[$type] : $types;
+    }
+
+    // Category Status
+    public const CATEGORY_STATUS_ACTIVE = 'active';
+    public const CATEGORY_STATUS_INACTIVE = 'inactive';
+
+    public static function getCategoryStatus(string $status = null)
+    {
+        $types = [
+            self::CATEGORY_STATUS_ACTIVE   => "Active",
+            self::CATEGORY_STATUS_INACTIVE => "Inactive",
+        ];
+
+        return $status ? $types[$status] : $types;
     }
 }

@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Vite;
 
-class Brand extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         "name",
         "slug",
-        "status",
+        "status"
     ];
 
     public function attachments(): MorphMany
@@ -45,9 +45,9 @@ class Brand extends Model
         return Vite::asset(Enum::NO_IMAGE_PATH);
     }
 
-    // Scope
+    // scope
     public function scopeActive($query)
     {
-        return $query->where('status', 'active');
+        return $this->where('status', Enum::CATEGORY_STATUS_ACTIVE);
     }
 }

@@ -20,6 +20,9 @@
     <link rel="apple-touch-icon-precomposed" href="{{asset("admin/images/favicon.ico")}}">
     <link rel="stylesheet" type="text/css" href="{{asset("admin/css/sweetalert.min.css")}}">
     <link rel="stylesheet" type="text/css" href="{{asset("admin/css/custom.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("admin/css/image-uploader.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("admin/css/image-uploader.css")}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha512-rqQltXRuHxtPWhktpAZxLHUVJ3Eombn3hvk9PHjV/N5DMUYnzKPC1i3ub0mEXgFzsaZNeJcoE0YHq0j/GFsdGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @stack('styles')
 </head>
@@ -49,6 +52,8 @@
     <script src="{{asset("admin/js/jquery.min.js")}}"></script>
     {{-- <script src="{{asset("admin/js/bootstrap.min.js")}}"></script> --}}
     <script src="{{asset("admin/js/bootstrap.bundle.min.js")}}"></script>
+    <script src="{{asset("admin/js/image-uploader.min.js")}}"></script>
+    <script src="{{asset("admin/js/image-uploader.js")}}"></script>
     <script src="{{asset("admin/js/bootstrap-select.min.js")}}"></script>   
     <script src="{{asset("admin/js/sweetalert.min.js")}}"></script>    
     <script src="{{asset("admin/js/apexcharts/apexcharts.js")}}"></script>
@@ -62,6 +67,16 @@
 
     <script>
         var BASE_URL = "{{ url('/') }}";
+    </script>
+    <script>
+        
+        $(function () {
+            $('.dropMeInputImage').imageUploader({
+                maxSize: 2 * 1024 * 1024,
+                maxFiles: 5
+            });
+        });
+
     </script>
 </body>
 </html>
