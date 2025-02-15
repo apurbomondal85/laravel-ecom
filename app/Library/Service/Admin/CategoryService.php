@@ -4,12 +4,12 @@ namespace App\Library\Service\Admin;
 
 use App\Library\Enum;
 use App\Library\Helper;
-use App\Models\Brand;
+use App\Models\Category;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
-class BrandService extends BaseService
+class CategoryService extends BaseService
 {
     private function actionHtml($row)
     {
@@ -17,8 +17,8 @@ class BrandService extends BaseService
 
         if ($row->id) {
             $actionHtml = '
-            <a class="dropdown-item" href="' . route('admin.brand.updateForm', $row->id) . '" ><i class="far fa-edit"></i> Edit</a>
-            <a style="cursor: pointer" class="dropdown-item text-danger" onclick="confirmFormModal(\'' . route('admin.brand.delete', $row->id) . '\', \'Confirmation\', \'Are you sure to delete operation?\')" ><i class="fas fa-trash-alt"></i> Delete</a>';
+            <a class="dropdown-item" href="' . route('admin.category.updateForm', $row->id) . '" ><i class="far fa-edit"></i> Edit</a>
+            <a style="cursor: pointer" class="dropdown-item text-danger" onclick="confirmFormModal(\'' . route('admin.category.delete', $row->id) . '\', \'Confirmation\', \'Are you sure to delete operation?\')" ><i class="fas fa-trash-alt"></i> Delete</a>';
         } else {
             $actionHtml = '';
         }
@@ -36,7 +36,7 @@ class BrandService extends BaseService
     private function getActiveSwitch($row)
     {
         $is_check = $row->status == 'active' ? "checked" : "";
-        $route = "'" . route('admin.brand.changeStatus', $row->id) . "'";
+        $route = "'" . route('admin.category.changeStatus', $row->id) . "'";
 
         return '<label class="custom-switch" for="primarySwitch_' . $row->id . '">
                     <input type="checkbox" class="custom-switch-input"
@@ -48,7 +48,7 @@ class BrandService extends BaseService
 
     public function dataTable()
     {
-        $data = Brand::orderBy('id', 'desc')->get();
+        $data = Category::orderBy('id', 'desc')->get();
 
         return DataTables::of($data)
                ->addIndexColumn()
@@ -77,10 +77,10 @@ class BrandService extends BaseService
           DB::beginTransaction();
 
           try {
-              $brand = Brand::create($data);
+              $category = Category::create($data);
 
               if (isset($data['image']) && $data['image'] != '') {
-                    attachmentStore($data['image'], $brand, Enum::BRAND_THUMBNAIL_IMAGE_DIR, Enum::ATTACHMENT_TYPE_THUMBNAIL, 400 , 400);
+                    attachmentStore($data['image'], $category, Enum::CATEGORY_THUMBNAIL_IMAGE_DIR, Enum::ATTACHMENT_TYPE_THUMBNAIL, 400 , 400);
               }
 
                DB::commit();
@@ -94,15 +94,15 @@ class BrandService extends BaseService
           }
     }
 
-    public function update(array $data, Brand $brand)
+    public function update(array $data, Category $category)
     {
           DB::beginTransaction();
 
           try {
-              $brand->update($data);
+              $category->update($data);
 
               if (isset($data['image']) && $data['image'] != '') {
-                    attachmentStore($data['image'], $brand, Enum::BRAND_THUMBNAIL_IMAGE_DIR, Enum::ATTACHMENT_TYPE_THUMBNAIL, 400 , 400);
+                    attachmentStore($data['image'], $category, Enum::CATEGORY_THUMBNAIL_IMAGE_DIR, Enum::ATTACHMENT_TYPE_THUMBNAIL, 400 , 400);
               }
 
                DB::commit();
@@ -116,13 +116,13 @@ class BrandService extends BaseService
           }
     }
 
-    public function changeStatus(Brand $brand): bool
+    public function changeStatus(Category $category): bool
     {
         try {
-          if ($brand->status == 'active') {
-               $this->data = $brand->update(['status' => 'inactive']);
+          if ($category->status == 'active') {
+               $this->data = $category->update(['status' => 'inactive']);
           }else{
-               $this->data = $brand->update(['status' => 'active']);
+               $this->data = $category->update(['status' => 'active']);
           }
 
             return $this->handleSuccess('Successfully Updated');
@@ -133,13 +133,13 @@ class BrandService extends BaseService
         }
     }
 
-    public function delete(Brand $brand): bool
+    public function delete(Category $category): bool
     {
         try {
-            deleteFile($brand->getThumbnailAttribute());
-            $brand?->attachments()?->where('for', Enum::ATTACHMENT_TYPE_THUMBNAIL)?->delete();
+            deleteFile($category->getThumbnailAttribute());
+            $category?->attachments()?->where('for', Enum::ATTACHMENT_TYPE_THUMBNAIL)?->delete();
 
-            $brand->delete();
+            $category->delete();
 
             return $this->handleSuccess('Successfully deleted');
         } catch (Exception $e) {

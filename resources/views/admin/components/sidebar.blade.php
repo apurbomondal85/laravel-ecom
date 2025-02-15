@@ -29,12 +29,12 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="sub-menu-item">
-                            <a href="add-product.html" class="">
+                            <a href="{{route('admin.product.create')}}" class="">
                                 <div class="text">Add Product</div>
                             </a>
                         </li>
                         <li class="sub-menu-item">
-                            <a href="products.html" class="">
+                            <a href="{{route('admin.product.index')}}" class="">
                                 <div class="text">Products</div>
                             </a>
                         </li>
@@ -65,12 +65,12 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="sub-menu-item">
-                            <a href="add-category.html" class="">
+                            <a href="{{route('admin.category.create')}}" class="">
                                 <div class="text">New Category</div>
                             </a>
                         </li>
                         <li class="sub-menu-item">
-                            <a href="categories.html" class="">
+                            <a href="{{route('admin.category.index')}}" class="">
                                 <div class="text">Categories</div>
                             </a>
                         </li>
