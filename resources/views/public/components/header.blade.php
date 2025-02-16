@@ -13,7 +13,7 @@
       </a>
 
       <div class="logo">
-        <a href="index.html">
+        <a href="{{url('/')}}">
           <img src="{{asset('frontend/images/logo.png')}}" alt="Uomo" class="logo__image d-block" />
         </a>
       </div>
@@ -52,7 +52,7 @@
         <div class="overflow-hidden">
           <ul class="navigation__list list-unstyled position-relative">
             <li class="navigation__item">
-              <a href="index.html" class="navigation__link">Home</a>
+              <a href="{{url('/')}}" class="navigation__link">Home</a>
             </li>
             <li class="navigation__item">
               <a href="shop.html" class="navigation__link">Shop</a>
@@ -128,11 +128,11 @@
     </nav>
 </div>
 
-<header id="header" class="header header-fullwidth header-transparent-bg">
+<header id="header" class="header header-fullwidth position-absolute header-transparent-bg">
     <div class="container">
       <div class="header-desk header-desk_type_1">
         <div class="logo">
-          <a href="index.html">
+          <a href="{{url('/')}}">
             <img src="{{asset('frontend/images/logo.png')}}" alt="Uomo" class="logo__image d-block" />
           </a>
         </div>
@@ -140,7 +140,7 @@
         <nav class="navigation">
           <ul class="navigation__list list-unstyled d-flex">
             <li class="navigation__item">
-              <a href="index.html" class="navigation__link">Home</a>
+              <a href="{{url('/')}}" class="navigation__link">Home</a>
             </li>
             <li class="navigation__item">
               <a href="{{route('public.shop.index')}}" class="navigation__link">Shop</a>

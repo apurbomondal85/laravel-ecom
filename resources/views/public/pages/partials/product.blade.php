@@ -33,7 +33,7 @@
         <h6 class="pc__title"><a href="{{route('public.shop.details', ['slug' => $product->slug])}}">{{$product->name}}</a></h6>
         <div class="product-card__price d-flex">
           @if ($product->sale_price)   
-              <span class="current-price">{{getFormattedAmount($product->sale_price)}}</span>
+              <span class="current-price me-2">{{getFormattedAmount($product->sale_price)}}</span>
               <del style="font-size: 14px;">{{getFormattedAmount($product->price)}}</del>
           @else
               <span class="current-price">{{getFormattedAmount($product->price)}}</span>
