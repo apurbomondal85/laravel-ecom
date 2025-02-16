@@ -51,4 +51,74 @@ enum Enum
 
         return $status ? $types[$status] : $types;
     }
+
+    //Order Status Type
+    public const ORDER_STATUS_TYPE_PENDING = 'pending';
+    public const ORDER_STATUS_TYPE_CANCELED = 'canceled';
+    public const ORDER_STATUS_TYPE_PROCESSING = 'processing';
+    public const ORDER_STATUS_TYPE_SHIPPED = 'shipped';
+    public const ORDER_STATUS_TYPE_DELIVERED = 'delivered';
+    public const ORDER_STATUS_TYPE_NOT_RECEIVED = 'not_received';
+    public const ORDER_STATUS_TYPE_INCOMPLETE = 'incomplete';
+
+    public static function getOrderStatusType(string $type = null)
+    {
+        $types = [
+            self::ORDER_STATUS_TYPE_PENDING      => 'Pending',
+            self::ORDER_STATUS_TYPE_CANCELED     => 'Canceled',
+            self::ORDER_STATUS_TYPE_PROCESSING   => 'Processing',
+            self::ORDER_STATUS_TYPE_SHIPPED      => 'Shipped',
+            self::ORDER_STATUS_TYPE_DELIVERED    => 'Delivered',
+            self::ORDER_STATUS_TYPE_NOT_RECEIVED => 'Not Received',
+            self::ORDER_STATUS_TYPE_INCOMPLETE   => 'Incomplete',
+        ];
+
+        return $type ? $types[$type] : $types;
+    }
+
+    //Order Payment Status Type
+    public const ORDER_PAYMENT_STATUS_UNPAID = 'unpaid';
+    public const ORDER_PAYMENT_STATUS_PARTIAL = 'partial';
+    public const ORDER_PAYMENT_STATUS_PAID = 'paid';
+    public const ORDER_PAYMENT_STATUS_REFUNDED = 'refunded';
+
+    public static function getPaymentStatusType(string $type = null)
+    {
+        $types = [
+            self::ORDER_PAYMENT_STATUS_UNPAID   => 'Unpaid',
+            self::ORDER_PAYMENT_STATUS_PARTIAL  => 'Partial',
+            self::ORDER_PAYMENT_STATUS_PAID     => 'Paid',
+            self::ORDER_PAYMENT_STATUS_REFUNDED => 'Refunded',
+        ];
+
+        return $type ? $types[$type] : $types;
+    }
+
+    //Order Payment Status Type
+    public const ORDER_PAYMENT_TYPE_COD = 'COD';
+    public const ORDER_PAYMENT_TYPE_DIGITAL = 'Digital';
+
+    public static function getOrderPaymentType(string $type = null)
+    {
+        $types = [
+            self::ORDER_PAYMENT_TYPE_COD     => 'COD',
+            self::ORDER_PAYMENT_TYPE_DIGITAL => 'Digital',
+        ];
+
+        return $type ? $types[$type] : $types;
+    }
+
+    // Discount Type
+    public const DISCOUNT_TYPE_FLAT = 'flat';
+    public const DISCOUNT_TYPE_PERCENTAGE = 'percentage';
+
+    public static function getDiscountType(string $type = null)
+    {
+        $types = [
+            self::DISCOUNT_TYPE_FLAT       => 'Flat',
+            self::DISCOUNT_TYPE_PERCENTAGE => 'Percentage',
+        ];
+
+        return $type ? $types[$type] : $types;
+    }
 }

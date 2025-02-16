@@ -2,10 +2,11 @@
 
 namespace App\Library\Service\Admin;
 
+use Exception;
 use App\Library\Enum;
 use App\Library\Helper;
 use App\Models\Brand;
-use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -77,6 +78,7 @@ class BrandService extends BaseService
           DB::beginTransaction();
 
           try {
+              $data['slug'] = Str::slug($data['slug']);
               $brand = Brand::create($data);
 
               if (isset($data['image']) && $data['image'] != '') {
@@ -99,6 +101,7 @@ class BrandService extends BaseService
           DB::beginTransaction();
 
           try {
+              $data['slug'] = Str::slug($data['slug']);
               $brand->update($data);
 
               if (isset($data['image']) && $data['image'] != '') {

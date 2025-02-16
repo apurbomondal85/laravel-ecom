@@ -1,3 +1,7 @@
+@php
+  use App\Models\Cart;
+  $carts = Cart::where('cart_identifier', request()->cookie('cart_identifier'))->get();
+@endphp
 
 <div class="header-mobile header_sticky">
     <div class="container d-flex align-items-center h-100">
@@ -139,10 +143,10 @@
               <a href="index.html" class="navigation__link">Home</a>
             </li>
             <li class="navigation__item">
-              <a href="shop.html" class="navigation__link">Shop</a>
+              <a href="{{route('public.shop.index')}}" class="navigation__link">Shop</a>
             </li>
             <li class="navigation__item">
-              <a href="cart.html" class="navigation__link">Cart</a>
+              <a href="{{route('public.cart.index')}}" class="navigation__link">Cart</a>
             </li>
             <li class="navigation__item">
               <a href="about.html" class="navigation__link">About</a>
@@ -219,9 +223,11 @@
             <i class="fa-solid fa-heart"></i>
           </a>
 
-          <a href="cart.html" class="header-tools__item header-tools__cart">
+          <a href="{{route('public.cart.index')}}" class="header-tools__item header-tools__cart">
             <i class="fa-solid fa-shopping-cart"></i>
-            <span class="cart-amount d-block position-absolute js-cart-items-count">3</span>
+            @if (count($carts) > 0)  
+              <span class="cart-amount d-block position-absolute js-cart-items-count">{{count($carts)}}</span>
+            @endif
           </a>
         </div>
       </div>

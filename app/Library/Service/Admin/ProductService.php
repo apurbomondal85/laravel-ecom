@@ -163,7 +163,7 @@ class ProductService extends BaseService
 
             if (isset($data['images']) && $data['images'] != '') {
                 foreach ($data['images'] as $image) {
-                    attachmentStore($image, $product, Enum::PRODUCT_GALLERY_IMAGE_DIR, Enum::ATTACHMENT_TYPE_GALLERY, 750, 750);
+                    attachmentStore($image, $product, Enum::PRODUCT_GALLERY_IMAGE_DIR, Enum::ATTACHMENT_TYPE_GALLERY, 540, 689);
                 }
             }
 

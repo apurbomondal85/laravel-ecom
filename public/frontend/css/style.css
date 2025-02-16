@@ -14549,15 +14549,15 @@ button.js-add-wishlist.active .flaticon.flaticon-heart, a.add-to-wishlist.active
             height: 3.125rem;
             padding: 0 2rem;
             min-width: 6.875rem; } }
-      .shopping-cart .cart-table .qty-control__reduce, .shopping-cart .cart-table .qty-control__increase {
+      .shopping-cart .cart-table .qty-control__reduce_cart, .shopping-cart .cart-table .qty-control__increase_cart {
         font-size: 1rem;
         text-align: center;
         top: 50%;
         transform: translateY(-50%); }
-      .shopping-cart .cart-table .qty-control__reduce {
+      .shopping-cart .cart-table .qty-control__reduce_cart {
         left: 0; }
         @media (min-width: 768px) {
-          .shopping-cart .cart-table .qty-control__reduce {
+          .shopping-cart .cart-table .qty-control__reduce_cart {
             left: 1.25rem; } }
       .shopping-cart .cart-table .qty-control__increase {
         right: 0; }

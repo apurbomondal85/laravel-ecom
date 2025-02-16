@@ -9,10 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset("frontend/css/plugins/animate.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("frontend/css/plugins/animate.min.css")}}">
     <link rel="stylesheet" type="text/css" href="{{asset("frontend/css/plugins/animation.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{asset("frontend/css/plugins/bootstrap.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{asset("frontend/css/plugins/bootstrap-select.min.css")}}"> --}}
+    <link rel="stylesheet" type="text/css" href="{{asset("frontend/css/plugins/swiper.min.css")}}">
     <link rel="stylesheet" type="text/css" href="{{asset("frontend/css/style.css")}}">
     <link rel="shortcut icon" href="{{asset("frontend/images/favicon.ico")}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset("frontend/images/favicon.ico")}}">
@@ -35,10 +34,15 @@
     <script src="{{ asset('frontend/js/plugins/jquery.min.js') }}"></script>
     <script src="{{ asset('frontend/js/plugins/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/plugins/bootstrap-slider.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/plugins/swiper.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/plugins/countdown.js') }}"></script>
     <script src="{{ asset('frontend/js/theme.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/zoom.js') }}"></script>
 
     @stack('scripts')
+
+    <script>
+        var BASE_URL = "{{ url('/') }}";
+    </script>
 </body>
 </html>
