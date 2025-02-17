@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\Auth\LoginController;
 use App\Http\Controllers\Public\Auth\RegisterController;
 use App\Http\Controllers\Public\CartController;
@@ -16,6 +16,7 @@ Route::get("/logout", [LoginController::class, "logout"])->name("logout");
 
 Route::name('public.')->as('public.')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/load-more', [HomeController::class, 'loadMore']);
 
     Route::group(['prefix' => 'shops', 'as' => 'shop.', 'controller' => ShopController::class], function () {
         Route::get('/', 'index')->name('index');

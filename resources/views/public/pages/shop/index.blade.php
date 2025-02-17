@@ -165,11 +165,11 @@
               <div id="accordion-filter-price" class="accordion-collapse collapse show border-0" aria-labelledby="accordion-heading-price" data-bs-parent="#price-filters">
                 
                 <input class="price-range-slider" type="text" name="price_range" 
-                    value="{{ request('price_range') ?? '0,450' }}" 
+                    value="{{ request('price_range') ?? '0,2000' }}" 
                     data-slider-min="0" 
-                    data-slider-max="1000" 
-                    data-slider-step="5" 
-                    data-slider-value="[{{ request('price_range') ?? '0,450' }}]" 
+                    data-slider-max="5000" 
+                    data-slider-step="100" 
+                    data-slider-value="[{{ request('price_range') ?? '0,2000' }}]" 
                     data-currency="$" />
 
                 <div class="price-range__info d-flex align-items-center mt-2">
@@ -179,7 +179,7 @@
                     </div>
                     <div>
                         <span class="text-secondary">Max Price: </span>
-                        <span class="price-range__max">${{ explode(',', request('price_range'))[1] ?? 450 }}</span>
+                        <span class="price-range__max">${{ explode(',', request('price_range'))[1] ?? 2000 }}</span>
                     </div>
                 </div>
             </div>
@@ -204,7 +204,7 @@
                   </div>
                   <div class="slide-split_media position-relative">
                     <div class="slideshow-bg" style="background-color: #f5e6e0;">
-                      <img loading="lazy" src="{{asset('frontend/images/shop/shop_banner3.jpg')}}" width="630" height="450"
+                      <img loading="lazy" src="{{asset('frontend/images/shop/shop_banner3.jpg')}}" width="630" height="2000"
                         alt="Women's accessories" class="slideshow-bg__img object-fit-cover" />
                     </div>
                   </div>
@@ -225,7 +225,7 @@
                   </div>
                   <div class="slide-split_media position-relative">
                     <div class="slideshow-bg" style="background-color: #f5e6e0;">
-                      <img loading="lazy" src="{{asset('frontend/images/shop/shop_banner3.jpg')}}" width="630" height="450"
+                      <img loading="lazy" src="{{asset('frontend/images/shop/shop_banner3.jpg')}}" width="630" height="2000"
                         alt="Women's accessories" class="slideshow-bg__img object-fit-cover" />
                     </div>
                   </div>
@@ -246,7 +246,7 @@
                   </div>
                   <div class="slide-split_media position-relative">
                     <div class="slideshow-bg" style="background-color: #f5e6e0;">
-                      <img loading="lazy" src="{{asset('frontend/images/shop/shop_banner3.jpg')}}" width="630" height="450"
+                      <img loading="lazy" src="{{asset('frontend/images/shop/shop_banner3.jpg')}}" width="630" height="2000"
                         alt="Women's accessories" class="slideshow-bg__img object-fit-cover" />
                     </div>
                   </div>
